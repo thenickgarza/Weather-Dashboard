@@ -12,7 +12,29 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <header class="jumbotron jumbotron-fluid bg-primary">
+        <div class="container">
+        <h1 class="display-5">Weather Dashboard</h1>
+        <p class="lead">A simple app that lets you track the weather of various cities!</p>
+        <p id="currentTime" class="lead"></p>
+        </div>
+    </header>
+<section>
 
+        
+            <div class="card">
+                <h3 class="card-header text-uppercase">Search for a city:</h3>
+                <form id="user-form" class="card-body">
+                  <label class="form-label" for="username">search for a city</label>
+                  <div class="form-group">
+                  <input name="city" id="citySearch" type="text" autofocus="true" class="form-input" />
+                  </div>
+                  <button type="submit" class="btn">Search</button>
+        </div>
+    
+</section>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

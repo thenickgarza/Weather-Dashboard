@@ -36,7 +36,7 @@
      // make a request to the url
      fetch(apiUrl)
      .then(response => response.json())
-     .then(data => console.log(data))
+     .then(data => console.log(data.main))
  };
 
  cityFormEl.addEventListener("submit", citySubmitHandler);

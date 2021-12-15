@@ -15,4 +15,9 @@
   .citySearch {
       font-weight: bold;
   }
+  .name {
+    display: grid;
+    justify-content: center;
+    
+  }
   

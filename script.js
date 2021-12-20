@@ -81,10 +81,36 @@
         fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=5e5aeafab0a91097731db1eeb71889ff&units=imperial")
             .then(response => response.json())
             .then(data => {
-                // Monday forecast
-                mTemp.innerHTML = data.daily[0].temp.day
-                mWind.innerHTML = data.dsily
-            });
+                console.log(data)
+                // Monday Forecast
+                mTemp.innerHTML = " Temp: " + data.daily[0].temp.day + " °F "
+                mWind.innerHTML = " Wind: " + data.daily[0].wind_speed + " MPH "
+                mHumid.innerHTML = " Humidity: " + data.daily[0].humidity + " % "
+                // Tuesday Forecast
+                tTemp.innerHTML = " Temp: " + data.daily[1].temp.day + " °F "
+                tWind.innerHTML = " Wind: " + data.daily[1].wind_speed + " MPH "
+                tHumid.innerHTML = " Humidity: " + data.daily[1].humidity + " % "
+                // Wednesday Forecast
+                wTemp.innerHTML = " Temp: " + data.daily[2].temp.day + " °F "
+                wWind.innerHTML = " Wind: " + data.daily[2].wind_speed + " MPH "
+                wHumid.innerHTML = " Humidity: " + data.daily[2].humidity + " % "
+                // Thursday Forecast
+                thTemp.innerHTML = " Temp: " + data.daily[3].temp.day + " °F "
+                thWind.innerHTML = " Wind: " + data.daily[3].wind_speed + " MPH "
+                thHumid.innerHTML = " Humidity: " + data.daily[3].humidity + " % "
+                // Friday Forecast
+                fTemp.innerHTML = " Temp: " + data.daily[4].temp.day + " °F "
+                fWind.innerHTML = " Wind: " + data.daily[4].wind_speed + " MPH "
+                fHumdid.innerHTML = " Humidity: " + data.daily[4].humidity + " % "
+                // Saturday Forecast
+                sTemp.innerHTML = " Temp: " + data.daily[5].temp.day + " °F "
+                sWind.innerHTML = " Wind: " + data.daily[5].wind_speed + " MPH "
+                sHumid.innerHTML = " Humidity: " + data.daily[5].humidity + " % "
+                // Sunday Forecast
+                suTemp.innerHTML = " Temp: " + data.daily[6].temp.day + " °F "
+                suWind.innerHTML = " Wind: " + data.daily[6].wind_speed + " MPH "
+                suHumid.innerHTML = " Humidity: " + data.daily[6]. humidity + " % "
+});
         
         
         });

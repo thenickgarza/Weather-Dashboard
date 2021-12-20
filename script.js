@@ -22,35 +22,72 @@
 
      if (userCity) {
          getCityWeather(userCity);
-
-         // clear old content 
+        // clear old content 
          cityInputEl.value = '';
      } else {
+         // alerts the user to enter a city if they hit search and have not entered a city
          alert('Please enter a city!');
      }
  };
 
+ // More variables to access the elements in the DOM 
+ let mTemp = document.querySelector('#mTemp');
+ let mWind = document.querySelector('#mWind');
+ let mHumid = document.querySelector('#mHumid');
+ let tTemp = document.querySelector('#tTemp');
+ let tWind = document.querySelector('#tWind');
+ let tHumid = document.querySelector('#tHumid');
+ let wTemp = document.querySelector('#wTemp');
+ let wWind = document.querySelector('#wWind');
+ let wHumid = document.querySelector('#wHumid');
+ let thTemp = document.querySelector('#thTemp');
+ let thWind = document.querySelector('#thWind');
+ let thHumid = document.querySelector('#thHumid');
+ let fTemp = document.querySelector('#fTemp');
+ let fWind = document.querySelector('#fWind');
+ let fHumdid = document.querySelector('#fHumid');
+ let sTemp = document.querySelector('#sTemp');
+ let sWind = document.querySelector('#sWind');
+ let sHumid = document.querySelector('#sHumid');
+ let suTemp = document.querySelector('#suTemp');
+ let suWind = document.querySelector('#suWind');
+ let suHumid = document.querySelector('#suHumid');
+
  var getCityWeather = function(city) {
      // format the OpenWeatherApi url
-     var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=5e5aeafab0a91097731db1eeb71889ff&units=standard';
+     var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=5e5aeafab0a91097731db1eeb71889ff&units=imperial';
      // make a request to the url
      fetch(apiUrl)
      // gets the response and formats it to json
      .then(response => response.json())
      // get the json response the console logs the data. main of the object
-    //  .then(data => console.log(data))
     .then(data => {
         var cityName = data.name
+        var temp = data.main.temp
         var wind = data.wind.speed
         var humidity = data.main.humidity
         console.log(data);
         // puts the data into the HTML 
         nameEl.innerHTML = " City: " + cityName 
+        tempEl.innerHTML = " Tempature: " + temp + "°F"
         windEl.innerHTML = " Wind: " + wind + " MPH ";
         humidityEl.innerHTML = " Humidity: " + humidity + "%";
+        // gets the latitude from the API above
+        var latitude = data.coord.lat
+        // gets the longitude from the API above
+        var longitude = data.coord.lon
+
+        // fetches thee 5 day weather forecast 
+        fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=5e5aeafab0a91097731db1eeb71889ff&units=imperial")
+            .then(response => response.json())
+            .then(data => {
+                // Monday forecast
+                mTemp.innerHTML = data.daily[0].temp.day
+                mWind.innerHTML = data.dsily
+            });
         
         
-    })
+        });
  };
 
  cityFormEl.addEventListener("submit", citySubmitHandler);

@@ -112,7 +112,7 @@
                 suHumid.innerHTML = " Humidity: " + data.daily[6]. humidity + " % "
 });
         
-        
+    
         });
  };
 

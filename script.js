@@ -7,6 +7,9 @@
  var tempEl = document.querySelector('#temp');
  var humidityEl = document.querySelector('#humidity');
  var uvIndexEl = document.querySelector('#uvIndex');
+ var cityArr = "";
+//  let searchHistory = JSON.parse(localStorage.getItem("city")) || [];
+// console.log(searchHistory)
  // tells computer to run HTML & CSS 1st.
  $(document).ready(function () {
     //displays the current day & time using moment js
@@ -14,20 +17,29 @@
  });
   
  var citySubmitHandler = function(event) {
-     // prevent page from refreshing
+    // prevent page from refreshing
      event.preventDefault();
-
-     // get value from input element
+    // get value from input element
      var userCity = cityInputEl.value.trim();
-
-     if (userCity) {
-         getCityWeather(userCity);
-        // clear old content 
+    if (userCity) {
+        getCityWeather(userCity);
+        displayLocalStorage()
+        // clears the input
          cityInputEl.value = '';
      } else {
          // alerts the user to enter a city if they hit search and have not entered a city
          alert('Please enter a city!');
      }
+ };
+
+let searchHistory = JSON.parse(localStorage.getItem("city")) || [];
+console.log(searchHistory)
+ function displayLocalStorage () {
+    var userCity = cityInputEl.value.trim();
+    const cityArr = [];
+    cityArr.push(userCity)
+    // save the input of the users search to local storage
+    localStorage.setItem("city", JSON.stringify(cityArr));
  };
 
  // More variables to access the elements in the DOM 

@@ -20,4 +20,7 @@
     justify-content: center;
     
   }
+  .col {
+    border-style: solid;
+  }
   
